@@ -89,7 +89,7 @@ function App() {
     if (engineSelectedSymbol) loadEngineInfo(engineSelectedSymbol);
   }, [engineSelectedSymbol]);
 
-  // Poll live prices every 30s when on engine page
+  // Poll live prices every 2m when on engine page
   useEffect(() => {
     if (page !== "engine") return;
     const poll = () =>
@@ -97,7 +97,7 @@ function App() {
         .then(setLivePrices)
         .catch(() => {});
     poll();
-    const id = setInterval(poll, 30_000);
+    const id = setInterval(poll, 120_000);
     return () => clearInterval(id);
   }, [page]);
 
@@ -249,7 +249,7 @@ function App() {
             {/* Live prices for all engine symbols */}
             {engineSymbols.length > 0 && (
               <section className="card">
-                <h2>Live Prices (realtime, cập nhật mỗi 30s)</h2>
+                <h2>Live Prices (realtime, cập nhật mỗi 2 phút)</h2>
                 <div className="live-prices-grid">
                   {engineSymbols.map((sym) => {
                     const lp = livePrices[sym];

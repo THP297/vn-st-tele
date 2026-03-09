@@ -33,7 +33,7 @@ VNDIRECT_REST_URL = os.getenv(
     "https://finfo-api.vndirect.com.vn/v4/stock_prices",
 ).strip() or "https://finfo-api.vndirect.com.vn/v4/stock_prices"
 
-CHECK_INTERVAL_SEC = int(os.getenv("CHECK_INTERVAL_SEC", "30").strip() or "30")
+CHECK_INTERVAL_SEC = int(os.getenv("CHECK_INTERVAL_SEC", "120").strip() or "120")
 PRICE_BAND_PCT = float(os.getenv("PRICE_BAND_PCT", "0.001").strip() or "0.001")
 EQUAL_TOLERANCE_PCT = float(os.getenv("EQUAL_TOLERANCE_PCT", "0.0001").strip() or "0.0001")
 REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "8").strip() or "8")
