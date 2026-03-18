@@ -519,6 +519,7 @@ function App() {
                   <table>
                     <thead>
                       <tr>
+                        <th>Task #</th>
                         <th>Action</th>
                         <th>Direction</th>
                         <th>Target %</th>
@@ -531,13 +532,14 @@ function App() {
                     <tbody>
                       {enginePassedTasks.length === 0 ? (
                         <tr>
-                          <td colSpan={7} className="empty">
+                          <td colSpan={8} className="empty">
                             No passed tasks yet
                           </td>
                         </tr>
                       ) : (
-                        enginePassedTasks.map((t, i) => (
+                        enginePassedTasks.map((t: PassedTaskItem, i: number) => (
                           <tr key={`passed-${t.id}-${i}`}>
+                            <td>#{t.task_id ?? "?"}</td>
                             <td>
                               <span
                                 className={`action-badge action-${t.action.toLowerCase()}`}
